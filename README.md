@@ -5,7 +5,7 @@ Bryan Borgeson
 March 11, 2015
 
 ###Description
-This is a boilerplate for writing apps in PHP. It uses Composer to install [PHPUnit](https://phpunit.de/), [Silex](http://silex.sensiolabs.org/), and [Twig](http://twig.sensiolabs.org/).  It also links to a [Bootstrap](http://www.bootstrapcdn.com/) CDN for CSS Styling.
+This is a boilerplate for writing apps in PHP. It uses Composer to install [PHPUnit](https://phpunit.de/), [Silex](http://silex.sensiolabs.org/), and <a href="http://twig.sensiolabs.org/" target="_blank">Twig</a>.  It also links to a [Bootstrap](http://www.bootstrapcdn.com/) CDN for CSS Styling.
 
 ###Use and Editing
 To use this boilerplate, simply: <br />
