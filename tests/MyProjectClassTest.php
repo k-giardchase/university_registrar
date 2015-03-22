@@ -1,5 +1,10 @@
 <?php
 
+    /**
+    * @backupGlobals disabled
+    * $backupStaticAttribute disabled
+    */
+
     require_once "src/MyProjectClass.php";
 
     class MyProjectClassTest extends PHPUnit_Framework_TestCase
