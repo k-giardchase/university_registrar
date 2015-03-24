@@ -121,5 +121,22 @@
 
             $this->assertEquals([$test_course, $test_course2], $result);
         }
+
+        function test_update()
+        {
+            $course = 'Intro';
+            $coursenumber = 102;
+            $id = null;
+            $test_course = new Course($course, $coursenumber, $id);
+            $test_course->save();
+            $new_course = 'Outro'
+            $new_coursenumber = 201;
+
+            $test_course->update($new_course, $new_coursenumber);
+
+            $this->assertEquals(['Outro', 201], [$test_course->getCourse(), $test_course->getCourseNumber()]);
+        }
+
+        
     }
 ?>
