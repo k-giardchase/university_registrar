@@ -1,13 +1,15 @@
 <?php
 
+    $DB = new PDO('pgsql:host=localhost;dbname=uofu_test');
+
     /**
     * @backupGlobals disabled
     * $backupStaticAttribute disabled
     */
 
-    require_once "src/MyProjectClass.php";
+    require_once "src/Student.php";
 
-    class MyProjectClassTest extends PHPUnit_Framework_TestCase
+    class StudentTest extends PHPUnit_Framework_TestCase
     {
         function test_myFunction_firstTest()
         {

@@ -1,20 +1,13 @@
 ###Developers
-Bryan Borgeson
+Geoff Winner Kyle Giard-Chase
 
 ###Date
-March 11, 2015
+March 24, 2015
 
 ###Description
-This is a boilerplate for writing apps in PHP. It uses Composer to install <a href="https://phpunit.de/" target="_blank">PHPUnit</a>, <a href="http://silex.sensiolabs.org/" target="_blank">Silex</a>, and <a href="http://twig.sensiolabs.org/" target="_blank">Twig</a>.  It also links to a <a href="http://www.bootstrapcdn.com/" target="_blank">Bootstrap</a> CDN for CSS Styling.
+Create an app for a University registrar to keep track of students and courses. It uses Composer to install <a href="https://phpunit.de/" target="_blank">PHPUnit</a>, <a href="http://silex.sensiolabs.org/" target="_blank">Silex</a>, and <a href="http://twig.sensiolabs.org/" target="_blank">Twig</a>.  It also links to a <a href="http://www.bootstrapcdn.com/" target="_blank">Bootstrap</a> CDN for CSS Styling.
 
-###Use and Editing
-To use this boilerplate, simply: <br />
-1. Download and Extract the compressed file into the directory you'd like your project to live in. <br />
-2. Load the project folder into your text editor. <br />
-3. Start PHP in the web folder of the project directory. <br />
-4. CODE! *Take care to change the names of the files in src, tests, and views, as well as the root folder to match your project* <br />
-
-###Copyright (c) 2015 Bryan Borgeson
+###Copyright (c) 2015 Geoff Winner, Kyle Giard-Chase
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
