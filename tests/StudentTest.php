@@ -8,12 +8,14 @@
     */
 
     require_once "src/Student.php";
+    require_once 'src/Course.php';
 
     class StudentTest extends PHPUnit_Framework_TestCase
     {
         protected function tearDown()
         {
             Student::deleteAll();
+            Course::deleteAll();
         }
 
         function test_getName()

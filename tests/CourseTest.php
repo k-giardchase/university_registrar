@@ -8,12 +8,14 @@
     */
 
     require_once 'src/Course.php';
+    require_once "src/Student.php";
 
     class CourseTest extends PHPUnit_Framework_TestCase
     {
         protected function tearDown()
         {
             Course::deleteAll();
+            Student::deleteAll();
         }
 
         function test_getCourse()
@@ -145,10 +147,16 @@
             $test_course = new Course($course, $coursenumber, $id);
             $test_course->save();
 
-            $test_course->delete();
-            $result = Student::getAll();
+            $name = 'Otto';
+            $date = '2015-09-13';
+            $id2 = null;
+            $test_student = new Student($name, $date, $id2);
+            $test_student->save();
 
-            $this->assertEquals([], $result);
+            $test_course->addStudent($test_student);
+            $test_course->delete();
+
+            $this->assertEquals([], $test_student->getCourses());
         }
 
         function test_find()
@@ -168,7 +176,26 @@
             $result = Course::find($test_course->getId());
 
             $this->assertEquals($test_course, $result);
+        }
 
+        function test_addStudent()
+        {
+            $course = 'Intro';
+            $coursenumber = 102;
+            $id = 1;
+            $test_course = new Course($course, $coursenumber, $id);
+            $test_course->save();
+
+            $name = 'John';
+            $date = '2015-03-24';
+            $id = 2;
+            $test_student = new Student($name, $date, $id);
+            $test_student->save();
+
+            $test_course->addStudent($test_student);
+            $result = $test_course->getStudents();
+
+            $this->assertEquals($test_student, $result[0]);
         }
 
     }
