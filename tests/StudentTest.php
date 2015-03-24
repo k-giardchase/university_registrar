@@ -144,7 +144,7 @@
             $this->assertEquals(['Maggie', '2013-09-02'], [$test_student->getName(), $test_student->getDate()]);
         }
 
-        function delete()
+        function test_delete()
         {
             $name = 'John';
             $date = '2015-03-24';
@@ -157,6 +157,33 @@
 
             $this->assertEquals([], $result);
         }
+
+        function test_addCourse()
+        {
+            $course = 'intro';
+            $coursenumber = 121;
+            $id = 1;
+            $test_course = new Course($course, $coursenumber, $id);
+            $test_course->save();
+
+            $course2 = 'outro';
+            $coursenumber2 = 122;
+            $id2 = 2;
+            $test_course2 = new Course($course2, $coursenumber2, $id2);
+            $test_course2->save();
+
+            $name = 'John';
+            $date = '2015-03-24';
+            $id3 = 3;
+            $test_student = new Student($name, $date, $id);
+            $test_student->save();
+
+            $test_student->addCourse($test_course);
+            $test_student->addCourse($test_course2);
+
+            $this->assertEquals($test_student->getCourses(), [$test_course, $test_course2]);
+        }
+
 
     }
 
