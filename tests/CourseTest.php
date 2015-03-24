@@ -129,7 +129,7 @@
             $id = null;
             $test_course = new Course($course, $coursenumber, $id);
             $test_course->save();
-            $new_course = 'Outro'
+            $new_course = 'Outro';
             $new_coursenumber = 201;
 
             $test_course->update($new_course, $new_coursenumber);
@@ -137,6 +137,39 @@
             $this->assertEquals(['Outro', 201], [$test_course->getCourse(), $test_course->getCourseNumber()]);
         }
 
-        
+        function test_delete()
+        {
+            $course = 'Intro';
+            $coursenumber = 102;
+            $id = null;
+            $test_course = new Course($course, $coursenumber, $id);
+            $test_course->save();
+
+            $test_course->delete();
+            $result = Student::getAll();
+
+            $this->assertEquals([], $result);
+        }
+
+        function test_find()
+        {
+            $course = 'Intro';
+            $coursenumber = 102;
+            $id = 1;
+            $test_course = new Course($course, $coursenumber, $id);
+            $test_course->save();
+
+            $course2 = 'Outro';
+            $coursenumber2 = 201;
+            $id2 = 2;
+            $test_course2 = new Course($course2, $coursenumber2, $id2);
+            $test_course2->save();
+
+            $result = Course::find($test_course->getId());
+
+            $this->assertEquals($test_course, $result);
+
+        }
+
     }
 ?>
