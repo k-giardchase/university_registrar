@@ -98,6 +98,6 @@
             $GLOBALS['DB']->exec("DELETE FROM students WHERE id = {$this->getId()};");
         }
 
-        
+
     }
 ?>
