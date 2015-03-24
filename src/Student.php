@@ -7,7 +7,7 @@
         private $name;
         private $date;
         private $id;
-        
+
         function __construct($name, $date, $id = null)
         {
             $this->name = $name;
@@ -85,6 +85,19 @@
             return $found_student;
         }
 
-    }
+        function update($new_name, $new_date)
+        {
+            $GLOBALS['DB']->exec("UPDATE students SET name = '{$new_name}' WHERE id = {$this->getId()};");
+            $GLOBALS['DB']->exec("UPDATE students SET date = '{$new_date}' WHERE id = {$this->getId()};");
+            $this->setName($new_name);
+            $this->setDate($new_date);
+        }
 
+        function delete()
+        {
+            $GLOBALS['DB']->exec("DELETE FROM students WHERE id = {$this->getId()};");
+        }
+
+        
+    }
 ?>

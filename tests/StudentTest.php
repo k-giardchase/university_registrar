@@ -126,6 +126,36 @@
             $this->assertEquals($test_student, $result);
 
         }
+
+        function test_update()
+        {
+            $name = 'John';
+            $date = '2015-03-24';
+            $id = 1;
+            $test_student = new Student($name, $date, $id);
+            $test_student->save();
+            $new_name = 'Maggie';
+            $new_date = '2013-09-02';
+
+            $test_student->update($new_name, $new_date);
+
+            $this->assertEquals(['Maggie', '2013-09-02'], [$test_student->getName(), $test_student->getDate()]);
+        }
+
+        function delete()
+        {
+            $name = 'John';
+            $date = '2015-03-24';
+            $id = 1;
+            $test_student = new Student($name, $date, $id);
+            $test_student->save();
+
+            $test_student->delete();
+            $result = Student::getAll();
+
+            $this->assertEquals([], $result);
+        }
+
     }
 
 ?>
