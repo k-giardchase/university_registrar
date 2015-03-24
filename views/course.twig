@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>Your Course</title>
+    </head>
+    <body>
+        <h1>{{ course.getCourse }}</h1>
+
+        <p><a href='courses/{{ course.getId }}/edit'>Edit this course</a></p>
+
+        <h3>Here are the students enrolled in this course:</h3>
+         {% if students is not empty %}
+            {% for student in students %}
+                <p> {{ student.getName }}</p>
+                <ul>
+                    {{ student.getDate }}</p>
+                </ul>
+            {% endfor %}
+         {% endif %}
+
+         <form action='courses/{id}' method='post'>
+             
+             <label for='name'>Student Name</label>
+             <input id='name' name='name' type='text'>
+             <label for='date'>Date of Enrollment YYYY-MM-DD</label>
+             <input id='date' name='date' type='text'>
+
+             <button type='submit'>Add</button>
+        </form>
+
+
+
+    </body>
+</html>
