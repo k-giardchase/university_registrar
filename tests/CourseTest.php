@@ -17,7 +17,7 @@
             Course::deleteAll();
             Student::deleteAll();
         }
-
+        
         function test_getCourse()
         {
             $course = 'Intro to Psych';
@@ -196,6 +196,37 @@
             $result = $test_course->getStudents();
 
             $this->assertEquals($test_student, $result[0]);
+        }
+
+        function test_getStudents()
+        {
+            $course = 'Intro';
+            $coursenumber = 102;
+            $id = 1;
+            $test_course = new Course($course, $coursenumber, $id);
+            $test_course->save();
+
+            $name = 'John';
+            $date = '2015-03-24';
+            $id = 2;
+            $test_student = new Student($name, $date, $id);
+            $test_student->save();
+
+            $name2 = 'Tim';
+            $date2 = '2014-10-29';
+            $id2 = 3;
+            $test_student2 = new Student($name2, $date2, $id2);
+            $test_student2->save();
+
+            $test_course->addStudent($test_student);
+            // var_dump($test_course->getStudents());
+            $test_course->addStudent($test_student2);
+            // var_dump($test_course->getStudents());
+
+
+            $this->assertEquals($test_course->getStudents(), [$test_student, $test_student2]);
+
+
         }
 
     }
