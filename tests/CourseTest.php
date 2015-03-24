@@ -11,6 +11,11 @@
 
     class CourseTest extends PHPUnit_Framework_TestCase
     {
+        protected function tearDown()
+        {
+            Course::deleteAll();
+        }
+
         function test_getCourse()
         {
             $course = 'Intro to Psych';
@@ -84,6 +89,37 @@
             $result = $test_course->getId();
 
             $this->assertEquals(3, $result);
+        }
+
+        function test_save()
+        {
+            $course = 'Intro';
+            $coursenumber = 102;
+            $id = 1;
+            $test_course = new Course($course, $coursenumber, $id);
+
+            $test_course->save();
+
+            $result = Course::getAll();
+            $this->assertEquals([$test_course], $result);
+        }
+
+        function test_getAll()
+        {
+            $course = 'Intro';
+            $coursenumber = 102;
+            $id = 1;
+            $test_course = new Course($course, $coursenumber, $id);
+            $test_course->save();
+            $course2 = 'PopLit';
+            $coursenumber2 = 202;
+            $id2 = 2;
+            $test_course2 = new Course($course2, $coursenumber2, $id2);
+            $test_course2->save();
+
+            $result = Course::getAll();
+
+            $this->assertEquals([$test_course, $test_course2], $result);
         }
     }
 ?>
