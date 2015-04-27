@@ -1,14 +1,44 @@
-###Developers
-Geoff Winner Kyle Giard-Chase
+##Developer
+Kyle Giard-Chase & Geoff Winner
 
-###Date
-March 24, 2015
+##Date
+March 23 2015
 
-###Description
-Create an app for a University registrar to keep track of students and courses. It uses Composer to install <a href="https://phpunit.de/" target="_blank">PHPUnit</a>, <a href="http://silex.sensiolabs.org/" target="_blank">Silex</a>, and <a href="http://twig.sensiolabs.org/" target="_blank">Twig</a>.  It also links to a <a href="http://www.bootstrapcdn.com/" target="_blank">Bootstrap</a> CDN for CSS Styling.
+##Description
+An app that allows a university registrar to keep track of students and courses.
 
-###Copyright (c) 2015 Geoff Winner, Kyle Giard-Chase
 
+##Technologies Used
+PHP <br>
+<a href='http://www.postgresql.org/'>PostgreSQL</a> <br>
+<a href='https://developers.google.com/speed/libraries/'>jQuery</a> <br>
+<a href='http://getbootstrap.com/'>Bootstrap </a>for styling <br>
+It uses <a href='https://getcomposer.org/'>Composer</a> to install:
+<li>
+<a href='http://silex.sensiolabs.org/'>Silex</a>
+</li>
+<li><a href='http://twig.sensiolabs.org/'>Twig</a></li>
+<li><a href='https://phpunit.de/'>PHPUnit</a></li>
+
+##Use and Editing
+To view the app,<br>
+1. Open your command shell, and clone the repository into your home folder using the command `git clone https://github.com/k-giardchase/university_registrar.git`<br>
+2. Import the database into PostgreSQL. See the Database section to do so.<br>
+3. In the top level of the project folder, run `composer install`<br>
+4. Start a php server by changing directories into the web folder `cd univeristy_registrar/web`
+and start your server `php -S localhost:8000`<br>
+5. Open your browser and navigate to your root path: `localhost:8000`
+
+##DATABASE
+```sql
+CREATE DATABASE uofu;
+ \c uofu
+CREATE TABLE courses (id serial PRIMARY KEY, course varchar, coursenumber int);
+CREATE TABLE students (id serial PRIMARY KEY, name varchar, date varchar);
+CREATE DATABASE uofu_test WITH TEMPLATE to_do;
+```
+
+##Copyright (c) 2015 Kyle Giard-Chase & Geoff Winner
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
